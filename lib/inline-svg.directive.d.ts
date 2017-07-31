@@ -1,0 +1,30 @@
+import { ElementRef, EventEmitter, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
+import { SVGCacheService } from './svg-cache.service';
+export declare class InlineSVGDirective implements OnInit, OnChanges, OnDestroy {
+    private _el;
+    private _svgCache;
+    inlineSVG: string;
+    replaceContents: boolean;
+    prepend: boolean;
+    cacheSVG: boolean;
+    removeSVGAttributes: Array<string>;
+    forceEvalStyles: boolean;
+    evalScripts: 'always' | 'once' | 'never';
+    fallbackImgUrl: string;
+    onSVGInserted: EventEmitter<SVGElement>;
+    onSVGFailed: EventEmitter<any>;
+    private _isBrowser;
+    private _supportsSVG;
+    private _prevUrl;
+    private _ranScripts;
+    private _subscription;
+    constructor(_el: ElementRef, _svgCache: SVGCacheService);
+    ngOnInit(): void;
+    ngOnChanges(changes: SimpleChanges): void;
+    ngOnDestroy(): void;
+    private _insertSVG();
+    private _insertEl(el);
+    private _removeAttributes(svg, attrs);
+    private _evalScripts(svg, url);
+    private _fail(msg);
+}

@@ -11,8 +11,5 @@ logs
 # Node files
 node_modules
 
-# Built files
-lib/
-
 # Built demo files
 demo/dist
